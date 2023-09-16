@@ -1,34 +1,28 @@
-package person;
+package entity;
 
 import java.util.ArrayList;
 
-public class User extends Person {
+public class User extends Person /*is-a*/ {
     private String username;
     private String password;
-
-    private String Code;
-
-    private UserType type;
-
+    private Role role; /*has-a*/
     private ArrayList<Unit> units = new ArrayList<>();
 
     public User() {
     }
 
-    public User(String firstname, String lastname, String nationalCode, String username, String password, String code, UserType type) {
+    public User(String firstname, String lastname, String nationalCode, String username, String password, Role role) {
         super(firstname, lastname, nationalCode);
         this.username = username;
         this.password = password;
-        Code = code;
-        this.type = type;
+        this.role = role;
     }
 
-    public User(String firstname, String lastname, String nationalCode, String username, String password, String code, UserType type, ArrayList<Unit> units) {
+    public User(String firstname, String lastname, String nationalCode, String username, String password, Role role, ArrayList<Unit> units) {
         super(firstname, lastname, nationalCode);
         this.username = username;
         this.password = password;
-        Code = code;
-        this.type = type;
+        this.role = role;
         this.units = units;
     }
 
@@ -48,20 +42,12 @@ public class User extends Person {
         this.password = password;
     }
 
-    public String getCode() {
-        return Code;
+    public Role getRole() {
+        return role;
     }
 
-    public void setCode(String code) {
-        Code = code;
-    }
-
-    public UserType getType() {
-        return type;
-    }
-
-    public void setType(UserType type) {
-        this.type = type;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public ArrayList<Unit> getUnits() {
@@ -72,13 +58,19 @@ public class User extends Person {
         this.units = units;
     }
 
+    public void setUpdateInformation(String firstname, String lastname, String username, String password) {
+        super.setFirstname(firstname);
+        super.setLastname(lastname);
+        this.username = username;
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", Code='" + Code + '\'' +
-                ", type=" + type +
+                ", role=" + role +
                 ", units=" + units +
                 "} " + super.toString();
     }

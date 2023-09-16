@@ -1,4 +1,4 @@
-package person;
+package entity;
 
 public class Unit {
     private String name;
@@ -8,15 +8,15 @@ public class Unit {
     public Unit() {
     }
 
+    public Unit(String name, int count) {
+        this.name = name;
+        this.count = count;
+    }
+
     public Unit(String name, int count, int score) {
         this.name = name;
         this.count = count;
         this.score = score;
-    }
-
-    public Unit(String name, int count) {
-        this.name = name;
-        this.count = count;
     }
 
     public String getName() {
@@ -43,12 +43,17 @@ public class Unit {
         this.score = score;
     }
 
+    public void setUpdateInformation(String name, String count) {
+        this.name = name;
+        this.count = Integer.parseInt(count);
+    }
+
     @Override
     public String toString() {
         return "Unit{" +
                 "name='" + name + '\'' +
-                ", count='" + count + '\'' +
-                ", score='" + score + '\'' +
+                ", count=" + count +
+                ", score=" + score +
                 '}';
     }
 }

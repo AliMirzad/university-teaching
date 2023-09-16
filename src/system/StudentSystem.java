@@ -1,35 +1,30 @@
 package system;
 
-import person.User;
+import entity.User;
 
 import java.util.Scanner;
 
 public class StudentSystem {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void studentMenu(User user) {
+    public static void studentPage(User user) {
         aa:
         while (true) {
-            System.out.println("#1-showMyInfo 2#-change password #3-unit system #4-exit\n" +
-                    "==========");
+            System.out.println("admin page\n" +
+                    "==========\n" +
+                    "#1-show my info #2-unit system #3-log out");
             String input = scanner.next();
             switch (input) {
                 case "1" -> {
                     System.out.println(user.toString());
                 }
                 case "2" -> {
-                    System.out.println("enter new password:");
-                    String newPassword = scanner.next();
-                    UserSystem.changePassword(user.getUsername(), user.getPassword(), newPassword);
+                    UnitSystem.studentUnitPage(user);
                 }
                 case "3" -> {
-                    UnitSystem.unitMenu(user);
-                }
-                case "4" -> {
-                    System.out.println("student menu closed");
                     break aa;
                 }
-                default -> System.out.println("wrong input");
+                default -> System.out.println("wrong input!");
             }
         }
     }

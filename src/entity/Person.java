@@ -1,10 +1,12 @@
-package person;
+package entity;
 
 public class Person {
+//    field- property
     private String firstname;
     private String lastname;
     private String nationalCode;
 
+//    constructor
     public Person() {
     }
 
@@ -14,6 +16,7 @@ public class Person {
         this.nationalCode = nationalCode;
     }
 
+//    getter & setter
     public String getFirstname() {
         return firstname;
     }
@@ -38,6 +41,7 @@ public class Person {
         this.nationalCode = nationalCode;
     }
 
+// toString
     @Override
     public String toString() {
         return "Person{" +
